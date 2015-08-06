@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
+<<<<<<< HEAD
 from django.http import  HttpResponse,HttpResponseRedirect
 from django.template import loader,RequestContext
 from .models import Question
@@ -65,3 +66,5 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+=======
+>>>>>>> 201094cea5538c2ff459630ce6e1396813bee7fd
