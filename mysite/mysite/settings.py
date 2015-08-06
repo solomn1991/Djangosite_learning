@@ -37,11 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'polls',
-=======
-    'polls'
->>>>>>> 201094cea5538c2ff459630ce6e1396813bee7fd
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,10 +77,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER':'tagremote',
-        'PASSWORD':'ASDqwe@#',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,"db.sqlite3"),
 
     }
 }
