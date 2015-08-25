@@ -37,7 +37,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+
     'polls',
+    'blog',
+    'form_test',
+    # "registration_email",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,8 +86,33 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR,"db.sqlite3"),
 
+    },
+    'db_of_polls':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR,"db_of_polls.sqlite3"),
+    },
+    'db_of_blog':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR,"db_of_blog.sqlite3"),
+    },
+    'db_of_registration':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR,"db_of_registration.sqlite3"),
+
     }
+
+
+
 }
+DATABASE_ROUTERS = ['mysite.database_router.DatabaseAppsRouter']
+DATABASE_APPS_MAPPING = {
+    # example:
+    #'app_name':'database_name',
+    'polls': 'db_of_polls',
+    'blog':'db_of_blog',
+    'registration':"db_of_registration",
+}
+
 
 
 # Internationalization
@@ -102,3 +133,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "../static/"
+
+STATICFILES_DIRS = (
+    # os.path.join(BASE_DIR,STATIC_URL),
+    "polls/static",
+    "mysite/common_static"
+)
+
+ACCOUNT_ACTIVATION_DAYS=7
+
+
+
